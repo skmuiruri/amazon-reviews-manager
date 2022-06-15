@@ -3,8 +3,8 @@ import Dependencies._
 ThisBuild / organization := "com.credimi"
 ThisBuild / version := "0.0.1"
 ThisBuild / scalaVersion := "2.13.7"
-ThisBuild / homepage := Some(url("https://github.com/credimi/id-documents"))
-ThisBuild / description := "A microservice dedicated to the domain of identification documents"
+ThisBuild / homepage := Some(url("https://github.com/skmuiruri/amazon-reviews-manager"))
+ThisBuild / description := "Scala coding challenge - Amazon reviews"
 
 addCommandAlias("fmt", "all scalafmtSbt scalafmt test:scalafmt")
 addCommandAlias("check", "all scalafmtSbtCheck scalafmtCheck test:scalafmtCheck")

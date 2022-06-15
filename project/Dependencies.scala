@@ -3,8 +3,7 @@ import sbt._
 object Dependencies {
   private val ZIOVersion = "1.0.15"
   private val slf4jVersion = "1.7.25"
-  private val doobieVersion = "1.0.0-RC1"
-
+  
   case object dev {
     case object zio {
       val zio = "dev.zio" %% "zio" % ZIOVersion
