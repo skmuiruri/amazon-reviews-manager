@@ -30,7 +30,7 @@ object AmazonReviewManager {
       val aggregatedMap: ZIO[Blocking, Throwable, Map[String, AggregatedReviewData]] = ZStream
         .fromFile(Paths.get(filePath))
         .transduce(ZTransducer.utf8Decode >>> ZTransducer.splitLines)
-        .map(_.fromJson[RawReview].getOrElse(throw new IllegalArgumentException("invalid json")))
+        .map(_.fromJson[RawReview].getOrElse(throw new IllegalArgumentException("invalid input")))
         .mapM(Review.from)
         .filter(r => r.reviewTime.isAfter(params.start) && r.reviewTime.isBefore(params.end))
         .run(ZSink.foldLeft(Map.empty[String, AggregatedReviewData]) {

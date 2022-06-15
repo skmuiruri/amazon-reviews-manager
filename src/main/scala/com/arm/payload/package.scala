@@ -18,7 +18,6 @@ package object payload {
   case class ResponseData(asin: String, average_rating: Double)
   object ResponseData {
     implicit val encoder: JsonEncoder[ResponseData] = DeriveJsonEncoder.gen[ResponseData]
-    implicit val lsEncode: JsonEncoder[List[ResponseData]] = DeriveJsonEncoder.gen[List[ResponseData]]
   }
 
 }

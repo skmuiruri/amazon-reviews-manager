@@ -28,7 +28,7 @@ class ReviewManagerServer(configs: CoreConfigs, clock: Clock.Service, console: C
         input <- req.getBodyAsString.map(_.fromJson[RawRequestParams]).toErrChannel
         params <- RequestParams.from(input)
         out <- manager.findTopProducts(configs.path, params)
-      } yield Response.json(out.toList.toJson)).provide(Has(blocking))
+      } yield Response.json(out.toList.toJsonPretty)).provide(Has(blocking))
   }
 
   private def server: Server[Any, Throwable] = Server.port(PORT) ++ Server.paranoidLeakDetection ++ Server.app(expiredDocApp)

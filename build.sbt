@@ -9,6 +9,8 @@ ThisBuild / description := "A microservice dedicated to the domain of identifica
 addCommandAlias("fmt", "all scalafmtSbt scalafmt test:scalafmt")
 addCommandAlias("check", "all scalafmtSbtCheck scalafmtCheck test:scalafmtCheck")
 
+mainClass in (Compile, run) := Some("com.arm.Main")
+
 lazy val root = (project in file("."))
   .settings(
     name := "amazon-reviews-manager",
